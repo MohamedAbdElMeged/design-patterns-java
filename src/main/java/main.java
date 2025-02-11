@@ -102,29 +102,76 @@
 
 
 //STRATEGY GOOD
-import strategy.good.*;
+//import strategy.good.*;
+//
+//
+//public class main {
+//
+//    public static void main(String[] args){
+//
+//       Product wallet = new Product("wallet",200.0,new RegularPricingStrategy());
+//       double walletPrice = wallet.calculatePrice();
+//        System.out.println(walletPrice);
+//       Product jacket = new Product("jacket",100.0, new GoldPricingStrategy());
+//       double jacketPrice = jacket.calculatePrice();
+//        System.out.println(jacketPrice);
+//        Product mobile = new Product( "Mobile",1000.0,new PremiumPricingStrategy());
+//        double mobilePrice = mobile.calculatePrice();
+//        System.out.println(mobilePrice);
+//
+//        Checkout checkout = new Checkout(new VisaPaymentStrategy());
+//        checkout.paymentStrategy.processPayment(walletPrice);
+//        Checkout pcheckout = new Checkout(new PayPalPaymentStrategy());
+//        pcheckout.paymentStrategy.processPayment(jacketPrice);
+//        Checkout mcheckout = new Checkout(new BankTransferPaymentStrategy());
+//        mcheckout.paymentStrategy.processPayment(mobilePrice);
+//
+//    }
+//}
 
+
+//notification_ecommerce_strategy_and_observer
+import notification_ecommerce_strategy_and_observer.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        ECommerceSystem eCommerceSystem = new ECommerceSystem();
+        List<NotificationSenderStrategy>  notificationSenderStrategies = new ArrayList<>();
+        notificationSenderStrategies.add(new EmailNotificationStrategy());
+        notificationSenderStrategies.add(new SmsNotificationStrategy());
+        Customer customer1 = new Customer("mohamed",notificationSenderStrategies);
 
-       Product wallet = new Product("wallet",200.0,new RegularPricingStrategy());
-       double walletPrice = wallet.calculatePrice();
-        System.out.println(walletPrice);
-       Product jacket = new Product("jacket",100.0, new GoldPricingStrategy());
-       double jacketPrice = jacket.calculatePrice();
-        System.out.println(jacketPrice);
-        Product mobile = new Product( "Mobile",1000.0,new PremiumPricingStrategy());
-        double mobilePrice = mobile.calculatePrice();
-        System.out.println(mobilePrice);
 
-        Checkout checkout = new Checkout(new VisaPaymentStrategy());
-        checkout.paymentStrategy.processPayment(walletPrice);
-        Checkout pcheckout = new Checkout(new PayPalPaymentStrategy());
-        pcheckout.paymentStrategy.processPayment(jacketPrice);
-        Checkout mcheckout = new Checkout(new BankTransferPaymentStrategy());
-        mcheckout.paymentStrategy.processPayment(mobilePrice);
+        List<NotificationSenderStrategy>  customer2NotificationSenderStrategies = new ArrayList<>();
+        customer2NotificationSenderStrategies.add(new EmailNotificationStrategy());
+        Customer customer2 = new Customer("ahmed",customer2NotificationSenderStrategies);
+
+        List<NotificationSenderStrategy>  customer3NotificationSenderStrategies = new ArrayList<>();
+        customer3NotificationSenderStrategies.add(new SmsNotificationStrategy());
+        Customer customer3 = new Customer("Maged",customer3NotificationSenderStrategies);
+
+
+        eCommerceSystem.subscribe(NotificationType.NEW_PRODUCT,customer1);
+        eCommerceSystem.subscribe(NotificationType.NEW_PRODUCT,customer2);
+        eCommerceSystem.subscribe(NotificationType.PRICE_CHANGED,customer3);
+
+        Product product = new Product("mobile", 1000.20);
+        eCommerceSystem.addProduct(product);
+
+
+        eCommerceSystem.changePrice(product, 2500.50);
+
 
     }
+
 }
+
+
+
+
+
+
