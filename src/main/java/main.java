@@ -11,6 +11,9 @@
 //
 //    // Liskov //Violations
 //    public static void main(String[] args){
+
+
+
 ////        Employee employee = new Employee();
 ////        employee.setHoursOfWork(10);
 ////        System.out.println("Employee Parent will be: "+ employee.calculateSalary());
@@ -131,47 +134,110 @@
 
 
 //notification_ecommerce_strategy_and_observer
-import notification_ecommerce_strategy_and_observer.*;
+//import notification_ecommerce_strategy_and_observer.*;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//public class main {
+//
+//    public static void main(String[] args) {
+//        ECommerceSystem eCommerceSystem = new ECommerceSystem();
+//        List<NotificationSenderStrategy>  notificationSenderStrategies = new ArrayList<>();
+//        notificationSenderStrategies.add(new EmailNotificationStrategy());
+//        notificationSenderStrategies.add(new SmsNotificationStrategy());
+//        Customer customer1 = new Customer("mohamed",notificationSenderStrategies);
+//
+//
+//        List<NotificationSenderStrategy>  customer2NotificationSenderStrategies = new ArrayList<>();
+//        customer2NotificationSenderStrategies.add(new EmailNotificationStrategy());
+//        Customer customer2 = new Customer("ahmed",customer2NotificationSenderStrategies);
+//
+//        List<NotificationSenderStrategy>  customer3NotificationSenderStrategies = new ArrayList<>();
+//        customer3NotificationSenderStrategies.add(new SmsNotificationStrategy());
+//        Customer customer3 = new Customer("Maged",customer3NotificationSenderStrategies);
+//
+//
+//        eCommerceSystem.subscribe(NotificationType.NEW_PRODUCT,customer1);
+//        eCommerceSystem.subscribe(NotificationType.NEW_PRODUCT,customer2);
+//        eCommerceSystem.subscribe(NotificationType.PRICE_CHANGED,customer3);
+//
+//        Product product = new Product("mobile", 1000.20);
+//        eCommerceSystem.addProduct(product);
+//
+//
+//        eCommerceSystem.changePrice(product, 2500.50);
+//
+//
+//    }
+//
+//}
 
-import java.util.ArrayList;
-import java.util.List;
+//import template_method.violation.*;
+//// template method violation
+//public class main {
+//
+//    public static void main(String[] args) {
+//        CVReportGeneration pdfCvReportGeneration = new PdfCVReportGeneration();
+//        GeneratedReport pdfGeneratedReport = pdfCvReportGeneration.generateCVReport("/tmp/1.pdf");
+//        System.out.println(pdfGeneratedReport.isPassed());
+//
+//        CVReportGeneration wordCVReportGeneration = new WordCVReportGeneration();
+//        GeneratedReport wordGeneratedReport = wordCVReportGeneration.generateCVReport("/tmp/1.word");
+//        System.out.println(wordGeneratedReport.isPassed());
+//
+//
+//        CVReportGeneration imgCVReportGeneration = new ImageCVReportGeneration();
+//        GeneratedReport imgGeneratedReport = imgCVReportGeneration.generateCVReport("/tmp/1.jpeg");
+//        System.out.println(imgGeneratedReport.isPassed());
+//
+//    }
+//
+//
+//}
 
+
+
+//import template_method.good.*;
+//// template method good
+//public class main {
+//
+//    public static void main(String[] args) {
+//        CVReportGeneration pdfCvReportGeneration = new PdfCVReportGeneration();
+//        GeneratedReport pdfGeneratedReport = pdfCvReportGeneration.generateCVReport("/tmp/1.pdf");
+//        System.out.println(pdfGeneratedReport.isPassed());
+//
+//        CVReportGeneration wordCVReportGeneration = new WordCVReportGeneration();
+//        GeneratedReport wordGeneratedReport = wordCVReportGeneration.generateCVReport("/tmp/1.word");
+//        System.out.println(wordGeneratedReport.isPassed());
+//
+//
+//        CVReportGeneration imgCVReportGeneration = new ImageCVReportGeneration();
+//        GeneratedReport imgGeneratedReport = imgCVReportGeneration.generateCVReport("/tmp/1.jpeg");
+//        System.out.println(imgGeneratedReport.isPassed());
+//
+//    }
+//
+//
+//}
+
+
+
+import template_method.exercise.*;
+// template method exercise
 public class main {
 
     public static void main(String[] args) {
-        ECommerceSystem eCommerceSystem = new ECommerceSystem();
-        List<NotificationSenderStrategy>  notificationSenderStrategies = new ArrayList<>();
-        notificationSenderStrategies.add(new EmailNotificationStrategy());
-        notificationSenderStrategies.add(new SmsNotificationStrategy());
-        Customer customer1 = new Customer("mohamed",notificationSenderStrategies);
-
-
-        List<NotificationSenderStrategy>  customer2NotificationSenderStrategies = new ArrayList<>();
-        customer2NotificationSenderStrategies.add(new EmailNotificationStrategy());
-        Customer customer2 = new Customer("ahmed",customer2NotificationSenderStrategies);
-
-        List<NotificationSenderStrategy>  customer3NotificationSenderStrategies = new ArrayList<>();
-        customer3NotificationSenderStrategies.add(new SmsNotificationStrategy());
-        Customer customer3 = new Customer("Maged",customer3NotificationSenderStrategies);
-
-
-        eCommerceSystem.subscribe(NotificationType.NEW_PRODUCT,customer1);
-        eCommerceSystem.subscribe(NotificationType.NEW_PRODUCT,customer2);
-        eCommerceSystem.subscribe(NotificationType.PRICE_CHANGED,customer3);
-
-        Product product = new Product("mobile", 1000.20);
-        eCommerceSystem.addProduct(product);
-
-
-        eCommerceSystem.changePrice(product, 2500.50);
-
+        SDVideoEditinhRenderer sdVideoEditinhRenderer = new SDVideoEditinhRenderer();
+        sdVideoEditinhRenderer.editVideo();
+        HDVideoEditingRenderer hdVideoEditingRenderer = new HDVideoEditingRenderer();
+        hdVideoEditingRenderer.editVideo();
+        FHDVideoEditingRenderer fhdVideoEditingRenderer = new FHDVideoEditingRenderer();
+        fhdVideoEditingRenderer.editVideo();
 
     }
 
+
 }
-
-
-
-
 
 
